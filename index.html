@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم البرمجه</title>
+    <style>
+        /* جميع التنسيقات الأخرى */
+        * {
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin-TOP: 160px;
+           
+        }
+
+
+
+  @keyframes slide {
+            0% { transform: translateX(0); }
+            30% { transform: translateX(-100%); }
+            50% { transform: translateX(-200%); }
+            90% { transform: translateX(0); }
+        }
+
+       
+        /* Existing Car Cards Styles */
+        .container {
+            width: 100%;
+            max-width:100%;
+            margin: 0 auto;
+            text-align: center;
+             margin-TOP: 40px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .sub-header {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+       
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            border: 2px solid black;
+             
+        }
+
+        .card img {
+            width: 100px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 8px;
+        }
+        
+        .card span {
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        
+        /* زر فتح القائمة في الجانب الأيسر */
+        .open-btn {
+            position: left;
+            left: 10px; /* وضع الزر في الجانب الأيسر */
+            font-size: 25px;
+            cursor: pointer;
+            background-color: #111;
+            color: red;
+            border-bottom: 3px solid yellow;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+         /* القائمة الجانبية */
+        .sidebar {
+           height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            right: 0; /* جعل القائمة تظهر من الجانب الأيمن */
+            background-color: lightblue;
+            color: red;
+            overflow-x: hidden;
+            transition: width 0.5s;
+            padding-top: 60px;
+            box-shadow: 5px 5px 10px #333, -2px -2px 10px #555;
+            border-radius: 10px;
+            line-height: 30px;
+            text-align: right;
+        }
+
+        .sidebar a {
+            background-color: #f0f0f0;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: black;
+            display: block;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+            border-radius: 10px;
+             border: 2px solid black;
+             margin-bottom: 5px;
+           
+        }
+
+        .sidebar a:hover {
+            background-color: black;
+            color: yellow;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar .close-btn {        
+           position: absolute;
+            background-color: black;
+            top: 5px;
+            left: 10px; /* جعل زر الإغلاق في الجانب الأيسر */
+            font-size: 30px;
+            color: yellow;
+            cursor: pointer;
+             transition: color 0.3s, transform 0.3s; /* انتقالات ناعمة لتأثيرات التمرير */
+        }
+         .sidebar .close-btn:hover {
+            color: yellow; /* تغيير لون عند التمرير */
+            transform: scale(1.1); /* تكبير قليلاً عند التمرير */
+        }
+
+ 
+
+       
+        /* Existing Car Cards Styles */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+             font-size: 7px;
+            
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #333;
+           font-size: 10px;
+        }
+
+        .sub-header {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+       
+
+ /* الهيدر */
+        header {
+           
+            position: fixed;
+            height: 100px;
+            top: 0;
+            width: 100%;
+            background-color: lightblue;
+            color: black;
+            z-index: 1000;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 -1px 4px rgba(255, 255, 255, 0.3);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border: 2px solid black;
+            text-align: center;
+            font-size: 18px;
+        }
+       .top-header h1 {
+            margin-right: auto;
+        }
+ header marquee {
+            color: BLACK;
+            font-weight: bold;
+             border-radius: 10px;
+            border: 2px solid black;
+            text-align: center;
+            font-size: 20px;
+             border-bottom: 2px solid black;
+            
+        }
+        /* تصميم الإعلان */
+        /* تصميم الإعلان */
+        #ad {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 18px;
+            display: none; /* الإعلان مخفي في البداية */
+            z-index: 1000;
+        }
+
+        #ad iframe {
+            width: 100%;
+            height: 60px; /* عرض الإعلانات بشكل شريط */
+             width: 100%;
+            height: 170px; /* تكبير الإعلان ليغطي عرض الصفحة */
+            border: none;
+            margin: 0;            
+           border: 2px solid black;
+            text-align: center;
+            font-size: 20px;
+             border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-size: 28px;
+            margin-bottom: 2px;
+            display: block;
+            text-align: center; /* محاذاة النص إلى اليمين */
+        }
+      
+ /* تعديل حجم الإعلان */
+         .ad-container iframe {
+            width: 728PX;
+            height: 90px; /* تكبير الإعلان ليغطي عرض الصفحة */
+            border: none;
+            margin: 0;
+            border: 2px solid BLACK;
+             border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+ .select-info {
+           background: #f0f0f0;
+            padding: 8px;
+            border-radius: 7px;
+            width: 100%;
+            display: block;
+             height: 160px; /* تكبير الإعلان ليغطي عرض الصفحة */
+          margin-top: 100px;
+          overflow: hidden; /* تأكيد أن الإعلان لا يمتد خارج الهيدر */
+      
+          
+          
+        }
+
+button {
+            display: block;
+            width:100%;
+            height: 80px;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 30px;
+           background: linear-gradient(to bottom,#003366,  #000000);
+            color: white;
+             border: 3px solid BLACK;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 -1px 4px rgba(255, 255, 255, 0.3);
+            margin-left: auto; /* نقل الأزرار إلى اليمين */
+            font-weight: bold;
+        }
+    
+    </style>
+</head>
+<header>
+    
+        <span class="open-btn" onclick="openSidebar()">☰</span> <!-- زر فتح القائمة -->
+         <span><b>
+		  
+<script type="text/javascript"> atOptions = { 'key' : '2184fdc96e5d7185918f1e7df5d44b53', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} }; </script> <script type="text/javascript" src="//www.highperformanceformat.com/2184fdc96e5d7185918f1e7df5d44b53/invoke.js"></script>
+    </span> 
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="#" class="close-btn" onclick="closeSidebar()">×</a>
+      <a href="https://carremote.rf.gd/frasha.html">الرئيسية</a> 
+        <a href="https://carremote.rf.gd/frasha.html">معلومات عنا</a>
+        <a href="https://carremote.rf.gd/privacy-policy.html">سياسة الخصوصية</a>
+  <script type="text/javascript">
+	atOptions = {
+		'key' : 'bc169f15946cb909c58c750704775a5c',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/bc169f15946cb909c58c750704775a5c/invoke.js"></script>     
+      
+    </div>
+ <!-- Image Slider -->
+   
+</header>
+<body>
+  
+  <script type='text/javascript' src='//pl25368326.profitablecpmrate.com/ea/0b/e1/ea0be10fdd787ade3a9d5987e8073a0a.js'></script>
+  <div class="  select-info">
+ <script type="text/javascript">
+	atOptions = {
+		'key' : 'bf9c2823739ede29738c5dc1c47e466e',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/bf9c2823739ede29738c5dc1c47e466e/invoke.js"></script>
+</div>  
+  
+    <!-- المحتوى الرئيسي -->
+    <div class="container">
+   
+     
+            
+         <h1>اضغط على اي شعار لتضهر لك المعلومـات</h1>
+        <div class="grid">
+            <!-- Car brand cards with links -->
+    <a href="http://carremote.rf.gd/TOYOTA.HTML" ><center><img class="card" src="https://i.ibb.co/b56jtwN/image.jpg" width="110px" height="110px"></center></a> 
+
+ <a href="http://carremote.rf.gd/KIA.HTML"  ><center><img class="card " src="https://i.ibb.co/yXqqKX6/image.jpg" width="110px" height="110px"></center></a>  
+
+
+
+
+
+<a href="http://carremote.rf.gd/LEKZZ.HTML" ><center><img class="card " src="https://i.ibb.co/QQvJtGM/file-Ud5x87ve86g5w-Yg-Ng-Wqcz5.webp " width="110px" height="110px"></center></a>
+
+<a href="http://carremote.rf.gd/JEEP.HTML" ><center><img class="card " src="https://i.ibb.co/wNX7rk4/image.jpg " width="110px" height="110px"></center></a>
+
+
+<a href="http://carremote.rf.gd/BMW.HTML" ><center><img class="card " src="https://i.ibb.co/DgX0rR4/file-5-Ax8p-Dc-GYRz-Tjj-VHHx-QGo1.webp " width="110px" height="110px"></center></a>
+          
+          
+<a href="http://carremote.rf.gd/GMC.HTML" ><center><img class="card " src="https://i.ibb.co/RHWZyzG/file-Wav-Ue5r-C5d-HVev-UWGs-T2o8.webp " width="110px" height="110px"></center></a>
+
+
+<a href="http://carremote.rf.gd/dihatso.HTML"  ><center><img class="card " src="https://i.ibb.co/nbGz9KK/image.png" width="110px" height="110px"></center></a>
+<a href="http://carremote.rf.gd/HONDA.HTML" ><center><img class="card " src="https://i.ibb.co/2M5hf9C/image.jpg " width="110px" height="110px"></center></a>
+
+
+<a href="http://carremote.rf.gd/Mistboshi.HTML"><center><img class="card " src="https://i.ibb.co/m0Gf4Dq/image.jpg"  " width="110px" height="110px"></center></a>
+<a href="http://carremote.rf.gd/HEOANDAI.HTML" ><center> <img class="card " src="https://i.ibb.co/qpHcH7L/image.jpg" width="110px" height="110px"></center></a>
+
+
+<a href="http://carremote.rf.gd/volvo.html" ><center><img class="card " src="https://i.ibb.co/HPHCzpn/image.jpg"" width="110px" height="110px"></center></a>
+<a href="http://carremote.rf.gd/isuzu.HTML" > <center><img class="card " src=" https://i.ibb.co/TH4gPNH/image.jpg " width="110px" height="110px"></center></a>
+
+
+<a href="http://carremote.rf.gd/NISSAN.HTML" ><center><img class="card " src="https://i.ibb.co/87MZDPv/file-VCWEd-MSo74-W1nk1-RMYAz3-M.webp " width="110px" height="110px"></center></a>
+<a href="http://carremote.rf.gd/SOZOKI.HTML" ><center><img class="card " src="https://i.ibb.co/8Dh85BB/file-1-NAR55f-JBED8y85u-APN884.webp" width="110px" height="110px"></center></a>
+
+
+ <a href="http://carremote.rf.gd/SHAVER.HTML"   ><center><img class="card " src="https://i.ibb.co/4V6tFYK/file-U5xb-VSad3yvuhb4-Lcf-VUe2.webp" width="110px" height="110px"></center></a>
+        
+          
+
+<a href="http://carremote.rf.gd/DAEW.HTML" ><center><img class="card " src="https://i.ibb.co/J27H2Br/image.jpg " width="110px" height="110px"></center></a>
+
+<a href="http://carremote.rf.gd/SOUPRA.HTML" ><center><img class="card " src="https://i.ibb.co/6R5CxK7/image.jpg" width="110px" height="110px"></center></a> 
+          
+          
+ <a href="http://carremote.rf.gd/SATRON.HTML" ><center><img class="card " src="https://i.ibb.co/vccsFgX/image.jpg" width="110px" height="110px"></center></a>
+        
+          
+<a href="http://carremote.rf.gd/BUICK.HTML" ><center><img class="card " src="https://i.ibb.co/GvGFnDC/image.jpg" width="110px" height="110px"></center></a>
+<a href="http://carremote.rf.gd/Citroen.HTML" ><center><img class="card " src="https://i.ibb.co/C1dQMCZ/image.jpg" width="110px" height="110px"></center></a>
+
+
+<a href="http://carremote.rf.gd/hmmar.HTML" ><center><img class="card " src="https://i.ibb.co/QjStr61/image.jpg " width="110px" height="110px"></center></a>
+<a href="http://carremote.rf.gd/Jagoar.HTML" ><center><img class="card " src="https://i.ibb.co/9q32MF5/image.jpg " width="110px" height="110px"></center></a>
+
+
+
+<a href="http://carremote.rf.gd/Landrovr.HTML"><center><img class="card " src="https://i.ibb.co/7brsM2Q/image.jpg " width="110px" height="110px"></center></a>
+
+          
+  <a href="http://carremote.rf.gd/fiat.HTML" ><center><img class="card " src="https://i.ibb.co/X3xtH44/image.jpg " width="110px" height="110px"></center></a>
+
+
+<a href="http://carremote.rf.gd/AODI.HTML" ><center><img class="card " src="https://i.ibb.co/XkKqw2d/image.jpg " width="110px" height="110px"></center></a>
+          
+          
+<a href="http://carremote.rf.gd/mini.HTML" ><center><img class="card " src="https://i.ibb.co/qrz3nyT/image.jpg " width="110px" height="110px"></center></a>
+
+  <a href="https://carremote.rf.gd/frasha.html" ><center><img class="card " src="https://i.ibb.co/PjVwGph/image.jpg " width="110px" height="110px"></center></a>
+        
+
+<a href="https://carremote.rf.gd/frasha.html" ><center><img class="card " src="https://f.top4top.io/p_3081a3sqd1.jpg" width="110px" height="110px"></center></a>
+<a href="https://carremote.rf.gd/frasha.html" ><center><img class="card " src="https://i.ibb.co/KNsCPtb/image.jpg " width="110px" height="110px"></center></a>
+
+
+<a href="https://carremote.rf.gd/frasha.html" ><center><img class="card " src="https://i.ibb.co/6rCBMb4/image.jpg " width="110px" height="110px"></center></a>
+<a href="https://carremote.rf.gd/frasha.html" ><center><img class="card " src="https://f.top4top.io/p_3113vj7gi1.jpg " width="110px" height="110px"></center></a>
+
+
+<a href="https://carremote.rf.gd/frasha.html" ><center><img class="card " src="https://i.ibb.co/bLZhst0/image.jpg " width="110px" height="110px"></center></a>
+<a href="https://carremote.rf.gd/frasha.html" ><center><img class="card " src="https://i.ibb.co/frxsTpg/image.jpg " width="110px" height="110px"></center></a>
+
+
+
+<a href="http://carremote.rf.gd/Pontiac.HTML" ><center><img class="card " src="https://f.top4top.io/p_31134v5iw1.jpg " width="110px" height="110px"></center></a>
+<a href="http://carremote.rf.gd/Cadillac.HTML" > <center><img class="card " src=" https://i.ibb.co/Wy4jjM9/image.jpg " width="110px" height="110px"></center></a>
+
+
+         
+
+<a href="http://carremote.rf.gd/scion.HTML"  ><center><img class="card " src="https://i.ibb.co/JCCCDkV/p-31136yo681.jpg " width="110px" height="110px"></center></a>
+<a href="http://carremote.rf.gd/eagle.HTML"  ><center><img class="card " src="https://i.ibb.co/g7vN7Vt/image.jpg " width="110px" height="110px"></center></a>
+
+            <!-- Add more cards as needed with links -->
+        </div>
+    <script type="text/javascript">
+	atOptions = {
+		'key' : 'bf9c2823739ede29738c5dc1c47e466e',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/bf9c2823739ede29738c5dc1c47e466e/invoke.js"></script>
+    </div>
+
+
+    <!-- الإعلان -->
+  
+    <button onclick="window.location.href='https://drive.google.com/uc?id=1JthPyg-OIoUaZYMpDiQPtoD55qSMbcxK&export=download'"> تنزيل التطبيق </button>
+
+     <script>
+ 
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+ // متغيرات لتتبع السحب
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        // الكشف عن بدء السحب
+        document.addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].screenX;
+        });
+
+        // الكشف عن إنهاء السحب
+        document.addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        // التعامل مع السحب
+        function handleSwipe() {
+            if (touchEndX < touchStartX && touchStartX - touchEndX > 100) {
+                openSidebar();  // إذا سحب المستخدم من اليمين إلى اليسار، نفتح القائمة
+            }
+            if (touchEndX > touchStartX && touchEndX - touchStartX > 100) {
+                closeSidebar();  // إذا سحب المستخدم من اليسار إلى اليمين، نغلق القائمة
+            }
+        }
+
+        // هذه الدالة تعرض الإعلان وتؤخر الانتقال إلى الرابط لمدة 3 ثوان
+        function showAdAndRedirect(event, targetURL) {
+            // منع الانتقال الفوري
+            event.preventDefault();
+
+            // عرض الإعلان في شريط أعلى الصفحة
+            document.getElementById('ad').style.display = 'block';
+
+            // بعد 3 ثوانٍ من عرض الإعلان، الانتقال إلى الرابط المحدد
+            setTimeout(function() {
+                // إخفاء الإعلان بعد 3 ثوانٍ
+                document.getElementById('ad').style.display = 'none';
+
+                // الانتقال إلى الرابط
+                window.location.href = targetURL;
+            }, 3000); // الوقت بالميلي ثانية (3000 ميلي ثانية = 3 ثواني)
+        }
+
+        // إضافة حدث النقر لجميع الروابط
+        const links = document.querySelectorAll('.page-link');
+        links.forEach(link => {
+            link.addEventListener('click', function(event) {
+                const targetURL = event.target.closest('a').href; // الحصول على الرابط
+                showAdAndRedirect(event, targetURL);
+            });
+        });
+    </script>
+</body>
+</html>
