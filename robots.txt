@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://remotecar.github.io/programremotecars/sitemap.xml
